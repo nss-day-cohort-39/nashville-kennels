@@ -16,7 +16,9 @@ export default () => {
     return (
         <>
             <h2>Employees</h2>
-            <div className="fakeLink" onClick={toggle}>New Employee</div>
+
+            <div className="fakeLink href" onClick={toggle}>New Employee</div>
+
             <ul className="employees">
                 {
                     employees.map(employee => {
@@ -32,11 +34,8 @@ export default () => {
                     New Employee
                 </ModalHeader>
                 <ModalBody>
-                    <EmployeeForm />
+                    <EmployeeForm toggler={toggle} />
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>Close</Button>
-                </ModalFooter>
             </Modal>
         </>
     )

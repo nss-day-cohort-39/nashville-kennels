@@ -1,13 +1,21 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import { EmployeeContext } from "./EmployeeProvider"
 
 export default ({ employee, location }) => {
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
 
+    const { deleteEmployee } = useContext(EmployeeContext)
+
     return (
         <>
-            <li className="fakeLink" onClick={toggle}>{employee.name}</li>
+            <li>
+                <span className="fakeLink href" onClick={toggle}>{employee.name}</span>
+                <span className="fakeLink icon--delete" onClick={() => {
+                    deleteEmployee(employee)
+                }}>🗑</span>
+                </li>
 
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
@@ -21,9 +29,6 @@ export default ({ employee, location }) => {
                         <label className="label--animal">Location:</label> {employee.locationId}
                     </div>
                 </ModalBody>
-                <ModalFooter>
-                    <Button color="secondary" onClick={toggle}>Close</Button>
-                </ModalFooter>
             </Modal>
         </>
     )

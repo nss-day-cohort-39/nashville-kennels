@@ -6,8 +6,9 @@ import "./Employee.css"
 export default props => {
     const { addEmployee } = useContext(EmployeeContext)
     const { locations } = useContext(LocationContext)
-    const name = useRef("")
-    const location = useRef(0)
+    const name = useRef()
+    const location = useRef()
+    const address = useRef()
 
     const constructNewEmployee = () => {
         const locationId = parseInt(location.current.value)
@@ -17,9 +18,10 @@ export default props => {
         } else {
             addEmployee({
                 name: name.current.value,
-                locationId: locationId
+                locationId: locationId,
+                address: address.current.value
             })
-            .then(() => props.history.push("/employees"))
+            .then(props.toggler)
         }
     }
 
@@ -37,6 +39,20 @@ export default props => {
                         autoFocus
                         className="form-control"
                         placeholder="Employee name"
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="employeeAddress">Address: </label>
+                    <input
+                        type="text"
+                        id="employeeAddress"
+                        ref={address}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Street address"
                     />
                 </div>
             </fieldset>
