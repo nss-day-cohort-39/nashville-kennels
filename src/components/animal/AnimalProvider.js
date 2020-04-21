@@ -54,9 +54,12 @@ export const AnimalProvider = (props) => {
 
 
     return (
-        <AnimalContext.Provider value={{
-            animals, addAnimal
-        }}>
+        <AnimalContext.Provider value={
+            {
+                animals,
+                addAnimal
+            }
+        }>
             {props.children}
         </AnimalContext.Provider>
     )
