@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import { Modal, ModalHeader, ModalBody } from "reactstrap"
 import { EmployeeContext } from "./EmployeeProvider"
 
 export default ({ employee, location }) => {

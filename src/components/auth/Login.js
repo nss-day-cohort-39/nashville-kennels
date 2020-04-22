@@ -36,7 +36,7 @@ const Login = props => {
     }
 
     return (
-        <main className="container--login">
+        <div className="container--login">
             <form className="form--login" onSubmit={handleLogin}>
                 <h2>Please sign in</h2>
                 <fieldset>
@@ -61,7 +61,7 @@ const Login = props => {
                     </button>
                 </fieldset>
             </form>
-        </main>
+        </div>
     )
 }
 export default Login

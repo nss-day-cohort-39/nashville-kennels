@@ -49,7 +49,7 @@ const Register = props => {
     }
 
     return (
-        <main className="container--login">
+        <div className="container--login">
             <form className="form--register" onSubmit={handleRegister}>
                 <h4 className="darkgray">If you are not a customer yet, please register a new account</h4>
                 <fieldset>
@@ -94,11 +94,11 @@ const Register = props => {
                 </fieldset>
                 <fieldset>
                     <button type="submit">
-                        Sign in
+                        Register
                     </button>
                 </fieldset>
             </form>
-        </main>
+        </div>
     )
 }
 
