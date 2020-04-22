@@ -15,6 +15,7 @@ import { AnimalProvider } from "./animal/AnimalProvider"
 import { CustomerProvider } from "./customer/CustomerProvider"
 import { EmployeeProvider } from "./employee/EmployeeProvider"
 import EmployeeList from "./employee/EmployeeList"
+import CustomerList from "./customer/CustomerList"
 
 export default () => (
     <>
@@ -26,32 +27,17 @@ export default () => (
             <div>500 Puppy Way</div>
         </address>
 
-        <h2>Animals</h2>
         <AnimalProvider>
-            <LocationProvider>
-                <CustomerProvider>
-                    <AnimalList />
-                </CustomerProvider>
-            </LocationProvider>
+            <CustomerProvider>
+                <EmployeeProvider>
+                    <LocationProvider>
+                        <AnimalList />
+                        <LocationList />
+                        <CustomerList />
+                        <EmployeeList />
+                    </LocationProvider>
+                </EmployeeProvider>
+            </CustomerProvider>
         </AnimalProvider>
-
-        <EmployeeProvider>
-            <LocationProvider>
-                <EmployeeList />
-            </LocationProvider>
-        </EmployeeProvider>
-
-        <h2>Locations</h2>
-        <LocationProvider>
-            <LocationList />
-        </LocationProvider>
-
-        <h2>Customers</h2>
-        <article className="customers">
-            <Customer />
-            <Customer />
-            <Customer />
-            <Customer />
-        </article>
     </>
 )
