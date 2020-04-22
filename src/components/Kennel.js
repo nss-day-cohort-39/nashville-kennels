@@ -13,6 +13,8 @@ import { LocationProvider } from "./location/LocationProvider"
 import AnimalList from "./animal/AnimalList"
 import { AnimalProvider } from "./animal/AnimalProvider"
 import { CustomerProvider } from "./customer/CustomerProvider"
+import { EmployeeProvider } from "./employee/EmployeeProvider"
+import EmployeeList from "./employee/EmployeeList"
 
 export default () => (
     <>
@@ -33,12 +35,11 @@ export default () => (
             </LocationProvider>
         </AnimalProvider>
 
-        <h2>Employees</h2>
-        <article className="employees">
-            <Employee />
-            <Employee />
-            <Employee />
-        </article>
+        <EmployeeProvider>
+            <LocationProvider>
+                <EmployeeList />
+            </LocationProvider>
+        </EmployeeProvider>
 
         <h2>Locations</h2>
         <LocationProvider>
