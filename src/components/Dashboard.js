@@ -20,25 +20,17 @@ export default () => (
 
         <AnimalProvider>
             <CustomerProvider>
-                <LocationProvider>
-                    <AnimalList />
-                </LocationProvider>
+                <EmployeeProvider>
+                    <LocationProvider>
+                        <LocationList />
+                        <AnimalList />
+                        <CustomerList />
+                        <EmployeeList />
+                    </LocationProvider>
+                </EmployeeProvider>
             </CustomerProvider>
         </AnimalProvider>
 
 
-        <EmployeeProvider>
-            <LocationProvider>
-                <EmployeeList />
-            </LocationProvider>
-        </EmployeeProvider>
-
-        <LocationProvider>
-            <LocationList />
-        </LocationProvider>
-
-        <CustomerProvider>
-            <CustomerList />
-        </CustomerProvider>
     </>
 )

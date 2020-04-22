@@ -6,10 +6,13 @@ export default () => {
     const { locations } = useContext(LocationContext)
 
     return (
-        <div className="locations">
-        {
-            locations.map(loc => <Location key={loc.id} location={loc} />)
-        }
-        </div>
+        <>
+            <h2>Locations</h2>
+            <div className="locations">
+                {
+                    locations.map(loc => <Location key={loc.id} location={loc} />)
+                }
+            </div>
+        </>
     )
 }
