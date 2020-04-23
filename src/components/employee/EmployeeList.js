@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
 import Employee from "./Employee"
 import { LocationContext } from "../location/LocationProvider"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+import { Modal, ModalHeader, ModalBody } from "reactstrap"
 import EmployeeForm from "./EmployeeForm"
+import "./Employee.css"
 
 
 export default () => {

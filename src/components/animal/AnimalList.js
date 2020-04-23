@@ -3,6 +3,8 @@ import { AnimalContext } from "./AnimalProvider"
 import { LocationContext } from "../location/LocationProvider"
 import { CustomerContext } from "../customer/CustomerProvider"
 import Animal from "./Animal"
+import "./Animal.css"
+
 
 export default () => {
     const { animals } = useContext(AnimalContext)

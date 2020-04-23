@@ -1,6 +1,8 @@
 import React, { useContext } from "react"
 import { CustomerContext } from "./CustomerProvider"
 import Customer from "./Customer"
+import "./Customer.css"
+
 
 export default () => {
     const { customers } = useContext(CustomerContext)
