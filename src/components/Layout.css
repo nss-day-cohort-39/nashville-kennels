@@ -9,9 +9,24 @@
     flex-direction: column;
     flex: 1;
     padding: 2rem;
+    border: 1px dotted darkgoldenrod;
 }
 
 .dataContainer {
     padding: 2rem;
     flex: 4;
+    border: 1px solid fuchsia;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.links {
+    flex: 1;
+}
+
+.listDisplay {
+    flex: 5;
 }

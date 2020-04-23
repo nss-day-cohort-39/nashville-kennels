@@ -4,18 +4,16 @@ import LocationList from "./location/LocationList"
 import { EmployeeProvider } from "./employee/EmployeeProvider"
 import EmployeeList from "./employee/EmployeeList"
 import { AnimalProvider } from "./animal/AnimalProvider"
-import AnimalList from "./animal/AnimalList"
 import { CustomerProvider } from "./customer/CustomerProvider"
 import CustomerList from "./customer/CustomerList"
 import { SearchBar } from "./search/SearchBar"
 import { SearchResults } from "./search/SearchResults"
 import "./Layout.css"
-import GeneralList from "./GeneralList"
 
 export default () => {
     const [searchTerms, setTerms] = useState(null)
     const [activeList, setActiveList] = useState("locations")
-    const [tree, setTree] = useState()
+    const [components, setComponents] = useState()
 
     const showLocations = () => (
         <LocationProvider>
@@ -37,20 +35,19 @@ export default () => {
         </EmployeeProvider>
     )
 
+    /*
+        This effort hook determines which list is shown based on the state of
+        the `activeList` variable.
+    */
     useEffect(() => {
-        switch (activeList) {
-            case "customers":
-                setTree(showCustomers)
-                break
-            case "locations":
-                setTree(showLocations)
-                break
-            case "employees":
-                setTree(showEmployees)
-                break
-            default:
-                setTree(showLocations)
-                break
+        if (activeList === "customers") {
+            setComponents(showCustomers)
+        }
+        else if (activeList === "locations") {
+            setComponents(showLocations)
+        }
+        else if (activeList === "employees") {
+            setComponents(showEmployees)
         }
     }, [activeList])
 
@@ -76,7 +73,7 @@ export default () => {
                         <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
                     </div>
                     <div className="listDisplay">
-                        {tree}
+                        {components}
                     </div>
                 </div>
 
