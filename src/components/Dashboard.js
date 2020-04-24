@@ -36,7 +36,7 @@ export default () => {
     )
 
     /*
-        This effort hook determines which list is shown based on the state of
+        This effect hook determines which list is shown based on the state of
         the `activeList` variable.
     */
     useEffect(() => {
