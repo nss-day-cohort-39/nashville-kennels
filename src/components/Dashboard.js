@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { LocationProvider } from "./location/LocationProvider"
+import { DataStore } from "./DataStore"
 import LocationList from "./location/LocationList"
-import { EmployeeProvider } from "./employee/EmployeeProvider"
 import EmployeeList from "./employee/EmployeeList"
-import { AnimalProvider } from "./animal/AnimalProvider"
-import { CustomerProvider } from "./customer/CustomerProvider"
 import CustomerList from "./customer/CustomerList"
 import { SearchBar } from "./search/SearchBar"
 import { SearchResults } from "./search/SearchResults"
@@ -15,29 +12,14 @@ export default () => {
     const [activeList, setActiveList] = useState("locations")
     const [components, setComponents] = useState()
 
-    const showLocations = () => (
-        <LocationProvider>
-            <LocationList />
-        </LocationProvider>
-    )
-
-    const showCustomers = () => (
-        <CustomerProvider>
-            <CustomerList />
-        </CustomerProvider>
-    )
-
-    const showEmployees = () => (
-        <EmployeeProvider>
-            <LocationProvider>
-                <EmployeeList />
-            </LocationProvider>
-        </EmployeeProvider>
-    )
+    // Higher order functions that return which component to render
+    const showLocations = () => <LocationList />
+    const showCustomers = () => <CustomerList />
+    const showEmployees = () => <EmployeeList />
 
     /*
-        This effect hook determines which list is shown based on the state of
-        the `activeList` variable.
+        This effect hook determines which list is shown
+        based on the state of the `activeList` variable.
     */
     useEffect(() => {
         if (activeList === "customers") {
@@ -53,31 +35,26 @@ export default () => {
 
     return (
         <div className="mainContainer">
-            <div className="searchContainer">
-                <AnimalProvider>
-                    <CustomerProvider>
-                        <LocationProvider>
-                            <SearchBar setTerms={setTerms} />
-                            <SearchResults searchTerms={searchTerms} />
-                        </LocationProvider>
-                    </CustomerProvider>
-                </AnimalProvider>
-            </div>
-            <div className="dataContainer">
-                <h1>Nashville Kennels</h1>
-                <small>Loving care when you're not there.</small>
-                <div className="listContainer">
-                    <div className="links">
-                        <div className="fakeLink href" onClick={() => setActiveList("locations")}>Locations</div>
-                        <div className="fakeLink href" onClick={() => setActiveList("customers")}>Customers</div>
-                        <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
-                    </div>
-                    <div className="listDisplay">
-                        {components}
+            <DataStore>
+                <div className="searchContainer">
+                    <SearchBar setTerms={setTerms} />
+                    <SearchResults searchTerms={searchTerms} />
+                </div>
+                <div className="dataContainer">
+                    <h1>Nashville Kennels</h1>
+                    <small>Loving care when you're not there.</small>
+                    <div className="listContainer">
+                        <div className="links">
+                            <div className="fakeLink href" onClick={() => setActiveList("locations")}>Locations</div>
+                            <div className="fakeLink href" onClick={() => setActiveList("customers")}>Customers</div>
+                            <div className="fakeLink href" onClick={() => setActiveList("employees")}>Employees</div>
+                        </div>
+                        <div className="listDisplay">
+                            {components}
+                        </div>
                     </div>
                 </div>
-
-            </div>
+            </DataStore>
         </div>
     )
 }
