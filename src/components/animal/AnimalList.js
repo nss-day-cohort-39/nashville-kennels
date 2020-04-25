@@ -7,7 +7,7 @@ import AnimalForm from "./AnimalForm"
 import Animal from "./Animal"
 import "./Animal.css"
 
-export default ({searchTerms}) => {
+const AnimalList = ({searchTerms}) => {
     const { animals } = useContext(AnimalContext)
     const { locations } = useContext(LocationContext)
     const { customers } = useContext(CustomerContext)
@@ -64,3 +64,4 @@ export default ({searchTerms}) => {
         </>
     )
 }
+ export default AnimalList
