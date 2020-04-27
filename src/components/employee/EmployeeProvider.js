@@ -33,20 +33,9 @@ export const EmployeeProvider = (props) => {
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
-    useEffect(
-        () => {
-            getEmployees()
-        },
-        []
-    )
-
-    useEffect(
-        () => {
-            console.log("****  Employee APPLICATION STATE CHANGED  ****")
-        },
-        [employees]
-    )
-
+    useEffect(() => {
+        getEmployees()
+    }, [])
 
     return (
         <EmployeeContext.Provider value={{

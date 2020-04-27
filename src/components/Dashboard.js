@@ -7,7 +7,7 @@ import { AnimalProvider } from "./animal/AnimalProvider"
 import { CustomerProvider } from "./customer/CustomerProvider"
 import CustomerList from "./customer/CustomerList"
 import { SearchBar } from "./search/SearchBar"
-import SearchResults from "./search/SearchResults"
+import { SearchResults } from "./search/SearchResults"
 import "./Layout.css"
 import "./Kennel.css"
 
@@ -78,7 +78,6 @@ export default () => {
                         {components}
                     </div>
                 </div>
-
             </div>
         </div>
     )

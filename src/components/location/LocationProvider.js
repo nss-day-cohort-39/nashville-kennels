@@ -33,20 +33,9 @@ export const LocationProvider = (props) => {
         Load all animals when the component is mounted. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
-    useEffect(
-        () => {
-            getLocations()
-        },
-        []
-    )
-
-    useEffect(
-        () => {
-            console.log("****  LOCATION APPLICATION STATE CHANGED  ****")
-        },
-        [locations]
-    )
-
+    useEffect(() => {
+        getLocations()
+    }, [])
 
     return (
         <LocationContext.Provider value={{

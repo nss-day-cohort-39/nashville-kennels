@@ -35,23 +35,9 @@ export const AnimalProvider = (props) => {
         Load all animals when the component is initialized. Ensure that
         an empty array is the second argument to avoid infinite loop.
     */
-    useEffect(
-        () => {
-            getAnimals()
-        },
-        []
-    )
-
-    /*
-        Watching the state of animals, console.logs when the state has changed
-    */
-    useEffect(
-        () => {
-            console.log("****  ANIMAL APPLICATION STATE CHANGED  ****")
-        },
-        [animals]
-    )
-
+    useEffect(() => {
+        getAnimals()
+    }, [])
 
     return (
         <AnimalContext.Provider value={
