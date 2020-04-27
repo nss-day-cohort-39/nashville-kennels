@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react"
 import { EmployeeContext } from "./EmployeeProvider"
-import Employee from "./Employee"
+import { EmployeeForm } from "./EmployeeForm"
+import { Employee } from "./Employee"
 import { LocationContext } from "../location/LocationProvider"
 import { Modal, ModalHeader, ModalBody } from "reactstrap"
-import EmployeeForm from "./EmployeeForm"
 import "./Employee.css"
 
 
-export default () => {
+export const EmployeeList = () => {
     const { employees } = useContext(EmployeeContext)
     const { locations } = useContext(LocationContext)
 

@@ -3,7 +3,7 @@ import { EmployeeContext } from "./EmployeeProvider"
 import { LocationContext } from "../location/LocationProvider"
 import "./Employee.css"
 
-export default props => {
+export const EmployeeForm = (props) => {
     const { addEmployee } = useContext(EmployeeContext)
     const { locations } = useContext(LocationContext)
     const name = useRef()
@@ -27,7 +27,6 @@ export default props => {
 
     return (
         <form className="employeeForm">
-            <h2 className="employeeForm__title">New Employee</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="employeeName">Employee name: </label>

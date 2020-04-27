@@ -6,7 +6,6 @@ import { CustomerContext } from "../customer/CustomerProvider"
 import { LocationContext } from "../location/LocationProvider"
 
 
-
 export const SearchResults = ({ searchTerms }) => {
     const { animals, releaseAnimal } = useContext(AnimalContext)
     const { customers } = useContext(CustomerContext)

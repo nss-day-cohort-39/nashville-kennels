@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "./Login.css"
 
-const Register = props => {
+export const Register = props => {
     const firstName = useRef()
     const lastName = useRef()
     const email = useRef()
@@ -102,5 +102,3 @@ const Register = props => {
         </div>
     )
 }
-
-export default Register

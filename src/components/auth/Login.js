@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import "./Login.css"
 
 
-const Login = props => {
+export const Login = props => {
     const email = useRef()
     const password = useRef()
 
@@ -62,5 +62,3 @@ const Login = props => {
         </div>
     )
 }
-export default Login
-

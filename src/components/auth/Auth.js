@@ -1,8 +1,8 @@
 import React from "react"
-import Login from "./Login"
-import Register from "./Register"
+import { Login } from "./Login"
+import { Register } from "./Register"
 
-export default ({toggle}) => {
+export const Auth = ({toggle}) => {
     return (
         <>
             <h1 className="welcome">Welcome to Nashville Kennels</h1>

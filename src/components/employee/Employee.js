@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react"
 import { Modal, ModalHeader, ModalBody } from "reactstrap"
 import { EmployeeContext } from "./EmployeeProvider"
 
-export default ({ employee, location }) => {
+
+export const Employee = ({ employee, location }) => {
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
 
@@ -26,7 +27,7 @@ export default ({ employee, location }) => {
                         <label className="label--animal">Address:</label> {employee.address}
                     </div>
                     <div className="animal__location">
-                        <label className="label--animal">Location:</label> {employee.locationId}
+                        <label className="label--animal">Location:</label> {location.name}
                     </div>
                 </ModalBody>
             </Modal>
