@@ -4,6 +4,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
 import Animal from "../animal/Animal"
 import { CustomerContext } from "../customer/CustomerProvider"
 import { LocationContext } from "../location/LocationProvider"
+import { AnimalForm } from "../animal/AnimalForm"
 
 
 export const SearchResults = ({ searchTerms }) => {
@@ -16,6 +17,9 @@ export const SearchResults = ({ searchTerms }) => {
 
     const [modal, setModal] = useState(false)
     const toggle = () => setModal(!modal)
+
+    const [editModal, setEditModal] = useState(false)
+    const toggleEdit = () => setEditModal(!editModal)
 
     useEffect(() => {
         if (searchTerms !== "") {
@@ -45,6 +49,15 @@ export const SearchResults = ({ searchTerms }) => {
                 }
             </div>
 
+            <Modal isOpen={editModal} toggle={toggleEdit}>
+                <ModalHeader toggle={toggleEdit}>
+                    { selectedAnimal.animal.name }
+                </ModalHeader>
+                <ModalBody>
+                    <AnimalForm key={selectedAnimal.animal.id} toggleEdit={toggleEdit} {...selectedAnimal} />
+                </ModalBody>
+            </Modal>
+
             <Modal isOpen={modal} toggle={toggle}>
                 <ModalHeader toggle={toggle}>
                     { selectedAnimal.animal.name }
@@ -53,6 +66,10 @@ export const SearchResults = ({ searchTerms }) => {
                     <Animal key={selectedAnimal.animal.id} {...selectedAnimal} />
                 </ModalBody>
                 <ModalFooter>
+                    <Button color="info" onClick={() => {
+                        toggle()
+                        toggleEdit()
+                    }}>Edit</Button>
                     <Button color="danger" onClick={() => {
                         releaseAnimal(selectedAnimal.animal.id)
                         toggle()
